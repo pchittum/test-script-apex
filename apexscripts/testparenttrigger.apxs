@@ -1,0 +1,4 @@
+List<test_Parent__c> parents = new List<test_Parent__c>();
+parents.add(new test_Parent__c(name='Parent1'));
+parents.add(new test_Parent__c(name='Parent2'));
+insert parents;

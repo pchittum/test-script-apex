@@ -1,0 +1,22 @@
+List<test_Parent__c> parents = new List<test_Parent__c>();
+parents.add(new test_Parent__c(name='Parent1'));
+parents.add(new test_Parent__c(name='Parent2'));
+insert parents;
+
+//here trigger will populate child records
+
+List<test_Parent__c> parentsWithChildren = [SELECT Id,Name, (SELECT Id,Name FROM test_Children__r) FROM test_Parent__c];
+
+List<test_Grandchild__c> grandChildren = new List<test_Grandchild__c>();
+
+for (test_Parent__c parent: parentsWithChildren){
+
+    for (test_Child__c child: parent.test_Children__r){
+
+        grandChildren.add(new test_Grandchild__c(Name='Grandchild of ' + parent.Name + ' Child of ' + child.Name, test_Child__c = child.Id));
+
+    }
+
+}
+
+insert grandChildren; 

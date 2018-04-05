@@ -1,0 +1,6 @@
+List<SObject> toDelete = new List<SObject>();
+
+toDelete.addAll([select Id from test_Parent__c]);
+toDelete.addAll([select Id from test_Child__c]);
+
+delete toDelete;
