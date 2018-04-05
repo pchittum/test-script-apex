@@ -24,6 +24,8 @@ Next martial up your org (presuming all is right with your dx installation)
 
     > sfdx force:user:permset:assign -n test_Script_Apex
 
+Now lets go and run the apex script:
+
     > sfdx force:apex:execute -f loaddata.apxs --loglevel debug
 
 You will now have populated the data. To test correct load: 
